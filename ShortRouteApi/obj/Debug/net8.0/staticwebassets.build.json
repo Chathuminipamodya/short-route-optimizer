@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "efpMqNAquhFytE8H6gU5RicqcESC7yhHgZzTFU5ZC1U=",
+  "Source": "ShortRouteApi",
+  "BasePath": "_content/ShortRouteApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,109 @@
+<!-- <div class="container">
+  <h1>Shortest Route Optimizer</h1>
+  
+  <div class="form-section">
+    <div class="input-group">
+      <label for="start">Start Node:</label>
+      <select id="start" [(ngModel)]="startNode">
+        <option value="">Select Start Node</option>
+        <option *ngFor="let node of nodes" [value]="node">{{ node }}</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="end">End Node:</label>
+      <select id="end" [(ngModel)]="endNode">
+        <option value="">Select End Node</option>
+        <option *ngFor="let node of nodes" [value]="node">{{ node }}</option>
+      </select>
+    </div>
+
+    <button (click)="calculateRoute()" [disabled]="loading">
+      {{ loading ? 'Calculating...' : 'Calculate Shortest Route' }}
+    </button>
+  </div>
+
+  <div class="error" *ngIf="error">
+    {{ error }}
+  </div>
+
+  <div class="result-section" *ngIf="result">
+    <h2>Result:</h2>
+    <div class="result-content">
+      <div class="path">
+        <strong>Shortest Path:</strong>
+        <div class="path-display">
+          <span *ngFor="let node of result.shortestPath; let last = last">
+            {{ node }}<span *ngIf="!last"> → </span>
+          </span>
+        </div>
+      </div>
+      <div class="distance">
+        <strong>Total Distance:</strong> {{ result.totalDistance }}
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <div class="header">
+    <h1>🗺️ Shortest Route Optimizer</h1>
+    <p>Find the optimal path between any two nodes using Dijkstra's Algorithm</p>
+  </div>
+
+  <div class="content">
+    <div class="form-section">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="start">Start Node</label>
+          <select id="start" [(ngModel)]="startNode">
+            <option value="">Select Start</option>
+            <option *ngFor="let node of nodes" [value]="node">{{ node }}</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="end">End Node</label>
+          <select id="end" [(ngModel)]="endNode">
+            <option value="">Select End</option>
+            <option *ngFor="let node of nodes" [value]="node">{{ node }}</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="calculate-btn" (click)="calculateRoute()" [disabled]="loading">
+        <span *ngIf="!loading">Calculate Shortest Route</span>
+        <span *ngIf="loading" class="loading">
+          <span class="spinner"></span>
+          Calculating...
+        </span>
+      </button>
+    </div>
+
+    <div class="error" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <div class="result-section" *ngIf="result">
+      <h2>Route Found!</h2>
+      <div class="result-content">
+        <div class="path-section">
+          <div class="section-label">Shortest Path</div>
+          <div class="path-display">
+            <ng-container *ngFor="let node of result.shortestPath; let last = last">
+              <span class="node">{{ node }}</span>
+              <span class="arrow" *ngIf="!last">→</span>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="distance-section">
+          <span class="distance-label">Total Distance</span>
+          <div>
+            <span class="distance-value">{{ result.totalDistance }}</span>
+            <span class="distance-unit">units</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
